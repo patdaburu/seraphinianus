@@ -19,17 +19,17 @@ of instruction online for installing Node on [Windows](http://blog.teamtreehouse
 [Linux](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-16-04), or
 [OSX](http://blog.teamtreehouse.com/install-node-js-npm-mac).
 
-Once Node is installed, you can run the server by calling the following script from the project's
-root directory:
+Once Node is installed, install the modules specified in the project's [package.json](package.json) file by moving into
+the project's root directory and running ``npm install``.
 
-Linux and OSX
-```sh
-node bin/www
+```
+npm install
 ```
 
-Windows
+You can then run the server by calling the startup script from the project's root directory.
+
 ```sh
-node bin\www
+node bin/www
 ```
 
 ## Calling the Service
