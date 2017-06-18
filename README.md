@@ -1,2 +1,68 @@
 # seraphinianus
-Node.js RESTful Web Services Template
+A Node.js RESTful Web Services Template
+
+This is far from a complete example or template, but it demonstrates a basic RESTful
+service implemented with Node.js and Connect/Express.
+
+The project skeleton was created using `express-generator` and the minimum set of modifications
+have been made to support the sample REST calls below.
+
+You can query the service using your favorite tool.  The examples below use 
+[curl](https://www.tutorialspoint.com/unix_commands/curl.htm) for the purpose of keeping this
+README simple.
+
+## Starting the Server
+This document assumes you have [Node](https://nodejs.org/en/) installed.  If not, you can find lots
+of instruction online for installing Node on [Windows](http://blog.teamtreehouse.com/install-node-js-npm-windows),
+[Linux](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-16-04), or
+[OSX](http://blog.teamtreehouse.com/install-node-js-npm-mac).
+
+## Calling the Service
+
+The examples below demonstrate querying the endpoints and show sample responses.
+
+### Get all the users.
+```sh
+curl localhost:3000/users
+```
+```json
+[{"id":"1","firstName":"Pat","lastName":"Blair","email":"pat@daburu.net"},{"id":"2","firstName":"Conan","lastName":"Blair","email":"captain.conan@gmail.com"}]
+```
+
+
+### Get a specific user.
+```sh
+curl localhost:3000/users/1
+```
+```json
+{"id":"1","firstName":"Pat","lastName":"Blair","email":"pat@daburu.net"}
+```
+
+
+### Update a specific user.
+```sh
+curl -X PUT -d firstName=Danny -d lastName=Deckchair -d email=danny@daburu.net localhost:3000/users/1
+```
+```json
+{"id":"1","firstName":"Danny","lastName":"Deckchair","email":"danny@daburu.net"}
+```
+
+### Add a new user.
+*Note that the seed users were given simple integer IDs to make the demonstration a little smoother.
+New users will have dynamically-generated UUID values for their IDs.*
+```sh
+curl -X POST -d firstName=Sandy -d lastName=Blair -d email=sblair9345@aol.com localhost:3000/users
+```
+```json
+{"id":"b632cb3d-abe6-4d20-844e-8016b4bdfb5c","firstName":"Sandy","lastName":"Blair","email":"sblair9345@aol.com"}
+```
+
+
+### Delete an existing user.
+```sh
+curl -X DELETE localhost:3000/users/2
+```
+```json
+{"id":"2","firstName":"Conan","lastName":"Blair","email":"captain.conan@gmail.com"}
+```
+
