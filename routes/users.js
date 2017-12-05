@@ -11,7 +11,7 @@ var user1 = {
     id: "1", // For easier demonstration, we'll give the seed users very simple IDs.
     firstName: 'Pat',
     lastName: 'Blair',
-    email: 'pat@daburu.net'
+    email: 'pat@somewhere.com'
 };
 usersDbMock[user1.id] = user1;
 // Create another seed user.
@@ -19,14 +19,14 @@ var user2 = {
     id: "2",
     firstName: 'Conan',
     lastName: 'Blair',
-    email: 'captain.conan@gmail.com'
+    email: 'conan@freemail.com'
 };
 usersDbMock[user2.id] = user2;
 
 /**
  * The GET handler that returns all the users.
- * @param {IncomingMessage} title - The request object.
- * @param {ServerResponse} author - The response object.
+ * @param {IncomingMessage} req - The request object.
+ * @param {ServerResponse} res - The response object.
  * @param {function} next - The next handler function in the pipeline.
  */
 router.get('/', function(req, res, next) {
@@ -40,8 +40,8 @@ router.get('/', function(req, res, next) {
 
 /**
  * The GET handler that returns a specific user by ID.
- * @param {IncomingMessage} title - The request object.
- * @param {ServerResponse} author - The response object.
+ * @param {IncomingMessage} req - The request object.
+ * @param {ServerResponse} res - The response object.
  * @param {function} next - The next handler function in the pipeline.
  */
 router.get('/:id', function(req, res, next){
@@ -64,8 +64,8 @@ router.get('/:id', function(req, res, next){
 
 /**
  * The POST handler that lets the caller create a new user.
- * @param {IncomingMessage} title - The request object.
- * @param {ServerResponse} author - The response object.
+ * @param {IncomingMessage} req - The request object.
+ * @param {ServerResponse} res - The response object.
  * @param {function} next - The next handler function in the pipeline.
  */
 router.post("/", function(req, res) {
@@ -90,8 +90,8 @@ router.post("/", function(req, res) {
 
 /**
  * The PUT handler that lets the caller update an existing user.
- * @param {IncomingMessage} title - The request object.
- * @param {ServerResponse} author - The response object.
+ * @param {IncomingMessage} req - The request object.
+ * @param {ServerResponse} res - The response object.
  * @param {function} next - The next handler function in the pipeline.
  */
 router.put("/:id", function(req, res) {
@@ -121,8 +121,8 @@ router.put("/:id", function(req, res) {
 
 /**
  * The DELETE handler that lets the caller delete an existing user.
- * @param {IncomingMessage} title - The request object.
- * @param {ServerResponse} author - The response object.
+ * @param {IncomingMessage} req - The request object.
+ * @param {ServerResponse} res - The response object.
  * @param {function} next - The next handler function in the pipeline.
  */
 router.delete("/:id", function(req, res) {
